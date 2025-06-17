@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(0, 73%, 50%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(0, 73%, 50%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom styles for the booking form */
+.booking-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: white;
+}
+
+.booking-form-title {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.625rem;
+  letter-spacing: 1px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 16px 0;
+  grid-gap: 22px;
+  margin-bottom: 2rem;
+  color: #000;
+  font-weight: 700;
+}
+
+.booking-form-title:after,
+.booking-form-title:before {
+  content: " ";
+  display: block;
+  border-bottom: 2px solid #d10101;
+  background-color: none;
+}
+
+.booking-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+}
+
+.booking-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.booking-field {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  margin: 0 0.5rem;
+}
+
+.booking-icon {
+  font-size: 12px;
+  color: white;
+  background-color: #d10101;
+  padding: 0 12px;
+  border-radius: 25px 0 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  border: none;
+}
+
+.booking-input, .booking-select {
+  height: 36px;
+  border: none;
+  text-align: center;
+  /* position: relative;
+  justify-content: center; */
+  background: #000;
+  width: 160px;
+  color: white;
+  border-radius: 0 25px 25px 0;
+  outline: none;
+  font-size: 0.875rem;
+  padding: 0 16px;
+  line-height: 48px;
+}
+
+.booking-input::placeholder, .booking-select option {
+  color: white;
+  opacity: 1;
+  text-align: center;
+}
+
+.booking-select {
+  appearance: none;
+  cursor: pointer;
+  color: white;
+  background-color: #000;
+}
+
+.booking-select option {
+  background-color: #000;
+  color: white;
+}
+
+.booking-date-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.booking-date-label {
+  background-color: #d10101;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 25px;
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 36px;
+}
+
+.booking-date-input {
+  background-color: #000;
+  color: white;
+  width: 200px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 25px;
+  border: none;
+  color-scheme: dark;
+  outline: none;
+}
+
+.booking-date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.booking-submit-btn {
+  background-color: #d10101;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 2rem;
+  justify-content: center;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+
+.booking-submit-btn:hover {
+  background-color: #b30000;
+}
+
+.booking-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.info-container {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.info-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: white;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  padding: 4px;
+}
+
+.info-popup {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 300px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #000;
+}
+
+.info-popup.visible {
+  display: block;
+}
+
+.error-message {
+  color: #d10101;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .booking-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .booking-input, .booking-select {
+    width: 200px;
+  }
+  
+  .booking-field {
+    margin: 0.5rem 0;
+  }
+}
